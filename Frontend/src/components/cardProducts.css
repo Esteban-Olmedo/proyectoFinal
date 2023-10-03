@@ -1,0 +1,15 @@
+
+
+.cardProducts {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    border-radius: 25px;
+    flex-wrap: wrap;
+    /* background-color: wheat; */
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+
+}
