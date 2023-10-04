@@ -34,7 +34,7 @@ const validateRegister = [
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            res.send(errors.array)
+            res.send(errors.array())
             return
           }
           next();

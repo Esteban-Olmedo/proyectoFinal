@@ -1,9 +1,6 @@
 const { body, validationResult } = require("express-validator");
 
 const validateActualizacion = [
-  body("id")
-    .isNumeric()
-    .withMessage("el id debe ser un numero"),
   body("name")
     .isString()
     .notEmpty()
@@ -26,7 +23,7 @@ const validateActualizacion = [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      res.send(errors.array)
+      res.send(errors.array())
       return
     }
     next();
@@ -34,9 +31,6 @@ const validateActualizacion = [
 ];
 
 const validateProducto = [
-  body("id")
-    .isNumeric()
-    .withMessage("el id debe ser un numero"),
   body("name")
     .isString()
     .notEmpty()
@@ -52,12 +46,15 @@ const validateProducto = [
     .isString()
     .notEmpty()
     .withMessage("Debes completar el campo"),
+    body("url")
+    .isString()
+    .optional(),
   
   (req, res, next) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      res.send(errors.array)
+      res.send(errors.array())
       return
     }
     next();

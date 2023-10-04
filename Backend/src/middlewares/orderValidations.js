@@ -14,7 +14,7 @@ const validateCreateOrder = [
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            res.send(errors.array)
+            res.send(errors.array())
             return
         }
         next();
@@ -36,7 +36,7 @@ const validateUpdateOrder = [
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            res.send(errors.array)
+            res.send(errors.array())
             return
         }
         next();

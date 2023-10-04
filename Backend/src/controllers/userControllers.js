@@ -9,40 +9,26 @@ const Users = require("../../models/index").users;
 //     res.send("register")
 // };
 
+
+
+
 const registrarNuevo = (req, res) => {
-    //destructiring
-    const { email, password } = req.body;
-
-    // Generar un salt (valor aleatorio) para fortalecer el hashing 
-    // const saltRounds = 1; // $2b$04$qXQ9W1gqwBTXfvGuZsxG9edctiC1i17pp/U49BgF69jyyyEqvociS
-    const saltRounds = 10; // $2b$10$UEhs00CicTlcIc3K3Zjf4uKqyvw4F/iSrbzfFntfIk/W5qDGPu.2O
-    // Aplicar el hashing de la contraseña utilizando bcrypt
-    bcrypt.hash (password, saltRounds, async (error, hashedPassword) => {
+    try {
+      const { ...newUser } = req.body;
+      bcrypt.hash(newUser.password, 10, async (error, hashedPassword) => {
         if (error) {
-            console.error(error);
-            res.status(500).send("Error al hashear la contraseña");
-            return;
+          console.error(error);
+          res.status(500).send("Error al hashear la contraseña");
+          return;
         }
-        // Crear un objeto con el email y la contraseña hasheada
-        const nuevoUsuario = {
-            email,
-            password: hashedPassword, // Guardar la contraseña hasheada en lugar de la original
-        };
-
-        // const usuarios = readUsuarios();
-        const user = await Users.create (nuevoUsuario)
-
-        // usuarios.push(nuevoUsuario);
-        // saveUsuarios(usuarios);
-
-        //antes: res.send("Nuevo usuario registrado");
-
-        //guardar el valor del usuario recien registrado en la sesion
-        req.session.usuario = user;
-
-        res.send({mensaje: "usuario creado"})
-    });
-};
+        await Users.create({ ...newUser, password: hashedPassword });
+        res.send({ mensaje: "usuario creado" });
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al crear el usuario");
+    }
+  };
 
 
 const login = async (req, res) => {
