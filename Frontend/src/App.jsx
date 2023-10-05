@@ -6,12 +6,9 @@ import Footer from './components/Footer'
 import ProductItem from './components/products/ProductItem';
 import React from 'react';
 import FormLogin from './components/login/FormLogin';
-//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// import Home from './components/Home';
-// import Login from './components/Login';
-// import Cart from './components/Cart';
-// import Register from './components/Register';
+
+
 
 
 function App() {
