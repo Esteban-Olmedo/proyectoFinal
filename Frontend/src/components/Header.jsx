@@ -1,32 +1,59 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const HeaderContainer = styled.header`
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Logo = styled.h1`
+  font-size: 24px;
+`;
+
+const MenuList = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 20px;
+`;
+
+const MenuItem = styled.li`
+  font-size: 18px;
+`;
 
 const Header = () => {
-    return (
-        <header>
-        <nav className="navbar">
-            <h1>FUNNY SOCKS</h1>
-            <ul className="navbar-links">
-            {/* <li>
-            <Link to="/home">Inicio</Link>
-          </li>
-          <li>
+  return (
+    <HeaderContainer>
+      <Nav>
+        <Logo>
+          <Link to="/">FUNNY SOCKS</Link>
+        </Logo>
+        <MenuList>
+          <MenuItem>
+            <Link to="/">Inicio</Link>
+          </MenuItem>
+          <MenuItem>
             <Link to="/nosotros">Nosotros</Link>
-          </li>
-          <li>
+          </MenuItem>
+          <MenuItem>
             <Link to="/servicios">Servicios</Link>
-          </li>
-          <li>
+          </MenuItem>
+          <MenuItem>
             <Link to="/contactos">Contactos</Link>
-          </li> */}
-            </ul>
-        </nav>
-        <div className="logo">
-                <img src="LogoSample.jpg" alt="logo" className="logosample"/>
-                <img src="LogoSample.jpg" alt="logo" className="logosample"/>
-                <img src="LogoSample.jpg" alt="logo" className="logosample"/>
-            </div>
-
-    </header>
-    );
+          </MenuItem>
+        </MenuList>
+      </Nav>
+    </HeaderContainer>
+  );
 };
 
 export default Header;
+
+ 
