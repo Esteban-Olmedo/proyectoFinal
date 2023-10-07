@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-const Register = () => {
+const Comprar = () => {
     return(
-        <h1>Register</h1>
+        <h1>Comprar</h1>
     )
 };
 
-export default Register;
+export default Comprar;

@@ -2,229 +2,56 @@
 
 :root,
 * {
-    padding: 0;
-    margin: 0;
+    /* padding: 0;
+    margin: 0; */
     font-family: "suez one";
     box-sizing: border-box;
 }
-
-
 
 body {
     background-color: #BFD7EA;
 }
 
-h1 {
-    text-align: center;
-    align-items: center;
-}
+/* colores:
+#BFD7EA; (celestito casi blanco)
+#FF5A5F; (rosa)
+#0B3954; (azul oscuro)
+#C81D25; (rojo)
+#087E8B; (azul claro)
 
-li {
-    list-style: none;
-}
+#BFD7EA; 
+#FF5A5F; 
+#0B3954; 
+#C81D25; 
+#087E8B;
 
-
-.navbar {
-    /* align-items: baseline; */
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    background-color: #FF5A5F;
-    width: 100vw;
-    font-size: small;
-    justify-content: space-around;
-
-}
-
-
-.navbar-links {
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    justify-content: end;
-    gap: 10px;
-    height: 50px;
-    align-items: center;
-    align-self: flex-end;
-    /* border: 5px solid black; */
-
-}
-
-/* .banner{
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    /* transform: rotate(90deg); 
-} 
 */
-.logo {
-    display: flex;
-    justify-content: space-around;
-    background-color: #0B3954;
-    width: 100vw;
 
-}
-
-.logosample {
-    height: 100px;
-}
-
-.filauno {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-}
-
-.producto {
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-    gap: 1rem;
-}
-
-.producto div {
-    display: flex;
-    justify-content: space-between;
-   
-}
-
-.producto div button {
-    background-color: #C81D25;
-    padding: 5px;
-    font-size: 12px;
-    border: none;
-    border-radius: 25px;
-}
-
-.filados {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-}
-
-/* article {
-    display: flex;
-    justify-content: space-around;
-    padding: 40px;
-    flex-direction: column;
+/* body,
+h1, h2, h3, h4, h5, h6,
+p,
+ul, ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
 } */
-.imagen {
-    width: 150px;
-    height: 10rem;
-    border-radius: 25px;
 
-}
-
-.ofertas {
-    display: flex;
-    justify-content: space-evenly;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-.ofertas article img {
-    width: 230px;
-    border-radius: 25px;
-}
-
-footer {
-    background-color: #FF5A5F;
-    width: 100vw;
-    font-size: small;
-}
-h2 {
-    display: flex;
-    justify-content: center;
-}
-.copyright {
-    display: flex;
-    justify-content: center;
-}
-footer div {
-    display: flex;
-    justify-content:space-between;
-}
-.footer-links {
-    padding-left: 30px;
+ul, ol {
     list-style: none;
-}
-.footer-iconos {
-    display: flex;
-    align-items: baseline;
-    gap: 80px;
-    padding-right: 30px;
-}
-a {
+  }
+
+  a {
     text-decoration: none;
     color: black;
-}
-
-
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
+
+  img {
+    border-style: none;
+    max-width: 100%;
+    height: auto;
   }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+
+
