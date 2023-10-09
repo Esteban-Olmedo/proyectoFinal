@@ -50,6 +50,9 @@ rol, name, surname, address, phone, email, password) VALUES
 -- $2b$12$6zECtS2oBuow4s55gAGxyOjYMp10Sh5QgQmDAumdhH.lZNmwpkBBG
 -- 2648pkmn
 
+-- mati@hotmail.com
+-- 123456789
+
 --  sequelize,
 --     modelName: 'products',
 --     timestamps: false,

@@ -1,53 +1,46 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import ProductCard from "../components/products/ProductCard";
-import SearchBar from "../components/Searchbar/Searchbar";
 import useCheckLogin from "../hooks/useCheckLogin";
 import useUserLogin from "../store/useUserLogin";
+import ProductGrid from "../components/products/ProductGrid";
 
 
 const Home = () => {
-  const [data, setData] = useState([]);
-  const [dataFiltered, setDataFiltered] = useState([]);
-  //useCheckLogin(); // ME LLEVA A LOGIN SIEMPRE
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  //useCheckLogin();
   const { user } = useUserLogin();
-
   useEffect(() => {
-    fetch("/api/productos") // "api/productos" //https://fakestoreapi.com/products
+    fetch("/api/productos")
       .then((response) => response.json())
-      .then((data) => setData(data));
+      .then((data) => {
+        setProducts(data.data);
+        setFilteredProducts(data.data);
+      });
   }, []);
-
   useEffect(() => {
-    setDataFiltered(data);
-  }, [data]);
-
-  const handleSearch = (term, size) => {
-    console.log("Buscando:", term);
-    let filtered;
-    if (term) {
-      filtered = data.filter((product) =>
-        product.name.toLowerCase().includes(term.toLowerCase())
-      );
+    if (searchTerm === "") {
+      setFilteredProducts(products);
+      return;
     }
-    // if (size) {
-    //   filtered = data.filter((product) =>
-    //   product.size.toLowerCase().includes(size.toLowerCase()) 
-    //   );
-    // }
-
-    setDataFiltered(filtered);
-  };
+    const filteredProducts = products.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) 
+    );
+    setFilteredProducts(filteredProducts);
+  }, [searchTerm]);
 
   return (
-    <main className="bodyGlobal">
-      <SearchBar onSearch={handleSearch} />
-      <section className="container">
-        {dataFiltered.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </section>
-    </main>
+    <>
+      
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      {filteredProducts ? <ProductGrid products={filteredProducts} /> : null}
+    </>
   );
 };
 

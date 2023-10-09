@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useCart from "../store/useCart";
 import styled from 'styled-components';
+import { useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -55,8 +56,11 @@ const LinkToCheckout = styled(Link)`
   }
 `;
 
+
 const Cart = () => {
-  const { cart, clearCart } = useCart();
+  //const [carrito, setCarrito] = useState([]);
+  const { cart, clearCart } = useCart(); 
+
 
   return (
     <Container>
@@ -65,7 +69,7 @@ const Cart = () => {
       <ProductList>
         {cart.map((product) => (
           <ProductItem key={product.id}>
-            Id: {product.id}, Nombre: {product.nombre}, Cantidad: {product.cantidad}
+            Id: {product.id}, Nombre: {product.name}, Cantidad: {product.cantidad}
           </ProductItem>
         ))}
       </ProductList>

@@ -52,7 +52,11 @@ const login = async (req, res) => {
             // result solo va a ser TRUE o FALSE
             if (result) {
                 //console.log("contraseña correcta");
-                res.status(200).send("Logeado correctamente");
+                res.status(200).json({
+                  message: "inicio de sesion exitoso",
+                  data: {nombre: user.name},
+                })
+                // res.status(200).send("Logeado correctamente");
             } else {
                 //console.log("contraseña incorrecta");
                 res.status(500).send("Contraseña incorrecta");

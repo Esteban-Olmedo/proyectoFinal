@@ -49,24 +49,25 @@ const Container = styled.div`
 `;
 
 const LoginForm = () => {
+  
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const { setIsLogged, setUser } = useUserLogin();
     const navigate = useNavigate();
   
     const onFinish = async (event) => {
+      const { email, password } = event.target.elements;
       event.preventDefault();
-      const { username, password } = event.target.elements;
       setLoading(true);
       setError(false);
       try {
-        const response = await fetch("/api/login", {
+        const response = await fetch("api/usuarios/login", { // "/api/login"
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            username: username.value,
+            email: email.value,
             password: password.value,
           }),
         });
@@ -90,10 +91,11 @@ const LoginForm = () => {
     return (
       <Container>
         <Form onSubmit={onFinish}>
-          <Input type="email" name="email" placeholder="Ingrese email" required />
+          <Input type="email" name="email" id="email" placeholder="Ingrese email" required />
           <Input
             type="password"
             name="password"
+            id="password"
             placeholder="Contraseña"
             required
           />
@@ -103,7 +105,7 @@ const LoginForm = () => {
             </ErrorText>
           )}
           <SubmitButton type="submit" disabled={loading}>
-            Iniciar sesión
+          {loading ? "Cargando..." : "Iniciar sesión"}
           </SubmitButton>
         </Form>
       </Container>
@@ -113,19 +115,25 @@ const LoginForm = () => {
   export default LoginForm;
 
 
+  // return (
+  //   <form action="/api/usuarios/login" method="post">
+  //     <h1>Login</h1>
+  //     <label htmlFor="">Ingrese email</label>
+  //     <input
+  //       type="email"
+  //       name="email"
+  //       id="email"
+  //       placeholder="Ingrese su email aquí..."
+  //     />
+  //     <label htmlFor="">Ingrese contraseña</label>
+  //     <input
+  //       type="password"
+  //       name="password"
+  //       id="password"
+  //       placeholder="Ingrese su contraseña aqui..."
+  //     />
+  //     <button type="submit">Enviar</button>
+  //   </form>
+  // );
 
 
-
-// import React from "react";
-// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
-// const Login = () => {
-
-//     return (
-//         <>
-//         <h1>Login</h1>
-//         </>
-//     );
-// };
-
-//export default Login;

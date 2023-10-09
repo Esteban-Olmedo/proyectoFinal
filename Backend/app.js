@@ -19,23 +19,23 @@ app.use("/api/usuarios", require ("./src/routes/userRoutes.js"));
 app.use("/api/orders", require ("./src/routes/orderRoutes.js"));
 
 
-app.post("/api/login", (req, res) => {
-    if (req.body.username === "tebi15@hotmail.com" && req.body.password === "2648pkmn") {
-      return res.json({
-        username: "tebi15@hotmail.com",
-        name: "esteban",
-        role: "admin",
-      });
-    } else if (req.body.username === "user" && req.body.password === "user") {
-      return res.json({
-        username: "user",
-        name: "User",
-        role: "user",
-      });
-    } else {
-      return res.status(400).json({ message: "Username or password is invalid" });
-    }
-  });
+// app.post("/api/login", (req, res) => {
+//     if (req.body.username === "tebi15@hotmail.com" && req.body.password === "2648pkmn") {
+//       return res.json({
+//         username: "tebi15@hotmail.com",
+//         name: "esteban",
+//         role: "admin",
+//       });
+//     } else if (req.body.username === "user" && req.body.password === "user") {
+//       return res.json({
+//         username: "user",
+//         name: "User",
+//         role: "user",
+//       });
+//     } else {
+//       return res.status(400).json({ message: "Username or password is invalid" });
+//     }
+//   });
 
 app.get("/api/test", (req, res) => {
     res.json([
