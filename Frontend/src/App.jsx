@@ -9,6 +9,7 @@ import Cart from './pages/Cart';
 import Register from "./pages/Register";
 import Comprar from "./pages/Comprar";
 import MainLayout from './layouts/MainLayout';
+import CreateProduct from './pages/CreateProduct';
 
 
 
@@ -60,7 +61,10 @@ function App() {
             element={<Comprar />}>
           </Route>
         {/* </Routes> */}
-        
+        <Route
+            path="/crear"
+            element={<CreateProduct />}>
+          </Route>
 
         {/* <Routes> */}
           <Route

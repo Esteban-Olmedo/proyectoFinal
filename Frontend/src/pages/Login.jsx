@@ -41,11 +41,12 @@ const SubmitButton = styled.button`
 `;
 
 const Container = styled.div`
+
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #0B3954; /* Cambio de color de fondo */
+  background-color: #0B3954; 
 `;
 
 const LoginForm = () => {

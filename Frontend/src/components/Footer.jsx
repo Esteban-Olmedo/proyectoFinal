@@ -35,12 +35,7 @@ const FooterIcons = styled.ul`
   gap: 20px;
 `;
 
-const FooterIcon = styled.li`
-  img {
-    width: 30px;
-    height: 30px;
-  }
-`;
+
 
 const Copyright = styled.div`
   p {
@@ -64,17 +59,7 @@ const Footer = () => {
             <Link to="/facebook">Facebook</Link>
           </FooterLink>
         </FooterLinks>
-        {/* <FooterIcons>
-          <FooterIcon>
-            <img src="img/twitter.png" alt="twitter" />
-          </FooterIcon>
-          <FooterIcon>
-            <img src="img/ig.png" alt="ig" />
-          </FooterIcon>
-          <FooterIcon>
-            <img src="img/fb.png" alt="fb" />
-          </FooterIcon>
-        </FooterIcons> */}
+       
       </div>
       <Copyright>
         <p>Copyright 2023 &copy;</p>
