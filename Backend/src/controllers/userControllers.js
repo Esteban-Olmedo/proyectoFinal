@@ -21,7 +21,7 @@ const registrarNuevo = (req, res) => {
           res.status(500).send("Error al hashear la contraseña");
           return;
         }
-        await Users.create({ ...newUser, password: hashedPassword });
+        await Users.create({ ...newUser, password: hashedPassword, rol:"cliente" });
         res.send({ mensaje: "usuario creado" });
       });
     } catch (error) {
@@ -54,7 +54,7 @@ const login = async (req, res) => {
                 //console.log("contraseña correcta");
                 res.status(200).json({
                   message: "inicio de sesion exitoso",
-                  data: {nombre: user.name},
+                  data: {nombre: user.name, rol:user.rol},
                 })
                 // res.status(200).send("Logeado correctamente");
             } else {

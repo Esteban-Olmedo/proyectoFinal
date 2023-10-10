@@ -5,11 +5,11 @@ const useUserLogin = create(
   persist(
     (set) => ({
       isLogged: false, //null 
-      rol: "admin", //valor inicial
+      // rol: "cliente", //valor inicial
       user: {},
       setIsLogged: (isLogged) => set(() => ({ isLogged: isLogged })),
       setUser: (user) => set(() => ({ user: user })),
-      setRol: (rol) => set(() => ({ rol: rol })),
+      // setRol: (rol) => set(() => ({ rol: rol })),
     }),
     {
       name: "user-login-storage",

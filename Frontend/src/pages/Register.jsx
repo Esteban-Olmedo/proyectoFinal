@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -34,8 +34,12 @@ const Input = styled.input`
   border-radius: 5px;
 `;
 
+const ErrorText = styled.p`
+  color: black; /* Cambio de color */
+`;
+
 const Button = styled.button`
-  background-color: #007bff;
+  background-color: #C81D25;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -45,16 +49,21 @@ const Button = styled.button`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #087E8B;
   }
 `;
 
 
 const Register = () => {
+  const navigate = useNavigate();
+  const [error, setError] = useState(false);
   const [formData, setFormData] = useState({
-    username: '',
     email: '',
-    password: '',
+    password: '',    
+    name: '',
+    surname: '',
+    address: '',
+    phone: '',
   });
 
   const handleChange = (e) => {
@@ -65,25 +74,39 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes enviar los datos del formulario al servidor o realizar otras acciones necesarias
+
+    try {
+      const response = await fetch('/api/usuarios/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        setFormData(false);
+        return setError(true);
+      }
+
+      const data = await response.json();
+      setFormData(data);
+      navigate("/");
+    } catch (error) {
+      console.log({ error });
+      setError(true);
+    }
+    
   };
+
 
   return (
     <Container>
       <h2>Registro</h2>
       <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label>Nombre de usuario</Label>
-          <Input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </FormGroup>
+        
         <FormGroup>
           <Label>Correo electrónico</Label>
           <Input
@@ -104,6 +127,53 @@ const Register = () => {
             required
           />
         </FormGroup>
+        
+        
+        <FormGroup>
+          <Label>Nombre</Label>
+          <Input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label>Apellido</Label>
+          <Input
+            type="text"
+            name="surname"
+            value={formData.surname}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label>Dirección</Label>
+          <Input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label>Teléfono</Label>
+          <Input
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
+        {error && (
+            <ErrorText>
+              Error al cargar el usuario. 
+            </ErrorText>
+          )}
         <Button type="submit">Registrarse</Button>
       </Form>
     </Container>

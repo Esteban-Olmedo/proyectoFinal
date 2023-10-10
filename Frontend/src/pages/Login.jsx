@@ -34,8 +34,8 @@ const SubmitButton = styled.button`
   transition-duration: 0.4s;
   cursor: pointer;
   &:hover {
-    background-color: #BFD7EA; /* Cambio de color */
-    color: #087E8B; /* Cambio de color */
+    background-color: #087E8B; /* Cambio de color */
+    color: white; /* Cambio de color #087E8B */
     border: 1px solid black; /* Cambio de color */
   }
 `;
@@ -45,7 +45,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #087E8B; /* Cambio de color de fondo */
+  background-color: #0B3954; /* Cambio de color de fondo */
 `;
 
 const LoginForm = () => {
@@ -71,15 +71,21 @@ const LoginForm = () => {
             password: password.value,
           }),
         });
-  
-        if (!response.ok) {
-          setLoading(false);
-          return setError(true);
-        }
-  
-        const data = await response.json();
-        setUser(data);
-        setIsLogged(true);
+
+        // Actualizar el estado global con la información del usuario y su rol de administrador.
+      // setUser(data);
+      // setIsLogged(true);
+      
+      if (!response.ok) {
+        setLoading(false);
+        return setError(true);
+      }
+      
+      const {data} = await response.json();
+      setUser(data);
+      setIsLogged(true);
+      console.log(data);
+      //setRol(data);
         navigate("/");
       } catch (error) {
         console.log({ error });
@@ -115,25 +121,6 @@ const LoginForm = () => {
   export default LoginForm;
 
 
-  // return (
-  //   <form action="/api/usuarios/login" method="post">
-  //     <h1>Login</h1>
-  //     <label htmlFor="">Ingrese email</label>
-  //     <input
-  //       type="email"
-  //       name="email"
-  //       id="email"
-  //       placeholder="Ingrese su email aquí..."
-  //     />
-  //     <label htmlFor="">Ingrese contraseña</label>
-  //     <input
-  //       type="password"
-  //       name="password"
-  //       id="password"
-  //       placeholder="Ingrese su contraseña aqui..."
-  //     />
-  //     <button type="submit">Enviar</button>
-  //   </form>
-  // );
+ 
 
 

@@ -42,17 +42,17 @@ const Header = () => {
         </Logo>
         <MenuList>
           <MenuItem>
-            <Link to="/">INICIO</Link>
+            <Link to="/">Inicio</Link>
           </MenuItem>
           <MenuItem>
-            <Link to="/cart">CARRITO</Link>
+            <Link to="/cart">Carrito</Link>
           </MenuItem>
-          <br />
+          
           <MenuItem>
-            <Link to="/servicios">Servicios</Link>
+            <Link to="/register">Registrarse</Link>
           </MenuItem>
           <MenuItem>
-            <Link to="/contactos">Contactos</Link>
+            <Link to="/login">Iniciar sesion</Link>
           </MenuItem>
         </MenuList>
       </Nav>

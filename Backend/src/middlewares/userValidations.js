@@ -1,9 +1,9 @@
 const { body, validationResult } = require("express-validator");
 
 const validateRegister = [
-    body("rol")
-        .notEmpty()
-        .withMessage("Debes completar el campo"),
+    // body("rol")
+    //     .notEmpty()
+    //     .withMessage("Debes completar el campo"),
     body("name")
         .notEmpty()
         .withMessage("Debes completar el campo"),

@@ -27,16 +27,16 @@ function App() {
             path="/"
             element={<Home />}>
           </Route>
-        </Routes>
+        {/* </Routes> */}
 
-        <Routes>
+        {/* <Routes> */}
           <Route
             path="/login"
             element={<Login />}>
           </Route>
-        </Routes>
+        {/* </Routes> */}
 
-        <Routes>
+        {/* <Routes> */}
           <Route
             path="/cart"
             element={
@@ -45,24 +45,24 @@ function App() {
            
             }>
           </Route>
-        </Routes>
+        {/* </Routes> */}
 
-        <Routes>
+        {/* <Routes> */}
           <Route
             path="/register"
             element={<Register />}>
           </Route>
-        </Routes>
+        {/* </Routes> */}
 
-        <Routes>
+        {/* <Routes> */}
           <Route
             path="/comprar"
             element={<Comprar />}>
           </Route>
-        </Routes>
-        <Footer/>
+        {/* </Routes> */}
+        
 
-        <Routes>
+        {/* <Routes> */}
           <Route
             path="*"
             element={
@@ -75,7 +75,7 @@ function App() {
           }>
           </Route>
           </Routes>
-
+          <Footer/>
           
       </BrowserRouter>
 

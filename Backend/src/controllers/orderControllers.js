@@ -1,12 +1,20 @@
-
+const OrderDetails = require("../../models/orderdetails").orderDetails;
 const Order = require('../../models/index').orders;
 
 // CREAR NUEVA ORDEN
 const createOrder = async (req, res) => {
     try {
-        const orderData = req.body;
+        const {user_id, shipping_address, products} = req.body; //enviar
+        let total_price = 0;
+        products.forEach(({price, cantidad}) => {
+            total_price += price * cantidad;
+        })
         
-        const order = await Order.create(orderData);
+        const order = await Order.create({user_id, shipping_address, total_price});
+        for(let i = 0; i < products.length; i ++){
+            const product = products[i]
+            await OrderDetails.create({order_id: order.id, product_id: product.id, quantity: product.cantidad, price: product.price});
+        }
         res.status(201).json({ message: 'Orden creada exitosamente', order });
     } catch (error) {
         res.status(500).json({ error: 'Error al crear la orden' });
