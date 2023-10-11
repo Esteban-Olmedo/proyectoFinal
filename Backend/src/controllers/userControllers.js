@@ -34,13 +34,7 @@ const registrarNuevo = (req, res) => {
 const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await Users.findOne({where: {email}});
-    //const usuarios = fs.readFileSync("usuarios.json", "utf-8");
-    //const usuariosParsed = JSON.parse(usuarios);
-
-    // console.log({ email, password });
-    // console.log(usuariosParsed);
-
-   // let usuarioFinded; //buscar en el array de usuarios el que coincida con el email, si ninguno coincide, enviar un error
+   
 
     if (user) {
 
@@ -54,7 +48,7 @@ const login = async (req, res) => {
                 //console.log("contraseña correcta");
                 res.status(200).json({
                   message: "inicio de sesion exitoso",
-                  data: {nombre: user.name, rol:user.rol},
+                  data: {rol: user.rol, name: user.name, surname: user.surname, address: user.address, phone: user.phone, email: user.email},
                 })
                 // res.status(200).send("Logeado correctamente");
             } else {

@@ -5,12 +5,27 @@ const useUserLogin = create(
   persist(
     (set) => ({
       isLogged: false, //null 
-      // rol: "cliente", //valor inicial
-      user: {},
+      
+      user: {}, //inicial
       setIsLogged: (isLogged) => set(() => ({ isLogged: isLogged })),
-      setUser: (user) => set(() => ({ user: user })),
-      // setRol: (rol) => set(() => ({ rol: rol })),
+      setUser: (user) =>
+        set((state) => ({
+          user: {
+            
+              ...state.user,
+              
+              name: user.name,
+              rol: user.rol,
+              surname: user.surname,
+              phone: user.phone,
+              email: user.email,
+              address: user.address,
+            
+          },
+        })),
     }),
+      // setUser: (user) => set((state) => ({ user: {...user.data} })),
+      // setIsAdmin: (isAdmin) => set(() => ({ isAdmin: isAdmin }))
     {
       name: "user-login-storage",
       storage: createJSONStorage(() => sessionStorage),

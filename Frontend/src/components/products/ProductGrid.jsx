@@ -2,6 +2,7 @@ import React from "react";
 import useCart from "../../store/useCart";
 import useUserLogin from "../../store/useUserLogin";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 // Estilo para el contenedor de ProductCard
 const ProductCardContainer = styled.div`
@@ -15,6 +16,21 @@ const ProductCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center; // Centrar contenido verticalmente
+`;
+
+const LinkToEdit = styled(Link)`
+background-color: #c81d25;
+color: #fff;
+border: none;
+border-radius: 5px;
+padding: 10px 20px;
+cursor: pointer;
+font-size: 16px;
+transition: background-color 0.2s ease;
+
+&:hover {
+  background-color: #087e8b;
+}
 `;
 
 // Estilo para el botón en ProductCard
@@ -40,7 +56,7 @@ const ProductCardImage = styled.img`
   object-fit: cover; // Escalar la imagen para llenar el contenedor
 `;
 
-// Aplicar estilos al componente ProductCard
+
 const ProductCard = ({ product }) => {
   const { addProduct } = useCart();
   const { user } = useUserLogin();
@@ -51,7 +67,8 @@ const ProductCard = ({ product }) => {
 
   const renderActionButton = () => {
     if (user.rol === "admin") {
-      return <ProductCardButton>Editar</ProductCardButton>;
+      return <LinkToEdit to={`/editar/${product.id}`}>Editar</LinkToEdit>
+      // return <ProductCardButton>Editar</ProductCardButton>;
     } else {
       return (
         <ProductCardButton onClick={handleAddCart}>

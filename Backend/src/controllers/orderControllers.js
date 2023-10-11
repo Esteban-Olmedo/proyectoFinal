@@ -10,6 +10,7 @@ const createOrder = async (req, res) => {
             total_price += price * cantidad;
         })
         
+        
         const order = await Order.create({user_id, shipping_address, total_price});
         for(let i = 0; i < products.length; i ++){
             const product = products[i]

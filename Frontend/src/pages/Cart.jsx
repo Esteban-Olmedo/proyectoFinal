@@ -41,6 +41,20 @@ const ProductItem = styled.li`
   margin-bottom: 10px;
 `;
 
+const RemoveButton = styled.button`
+background-color: black;
+color: white;
+border: none;
+padding: 3px 8px;
+font-size: 12px;
+cursor: pointer;
+border-radius: 4px;
+
+&:hover {
+  background-color: #087E8B;
+}
+`;
+
 const LinkToCheckout = styled(Link)`
   text-decoration: none;
   background-color: #C81D25;
@@ -58,9 +72,12 @@ const LinkToCheckout = styled(Link)`
 
 
 const Cart = () => {
-  //const [carrito, setCarrito] = useState([]);
-  const { cart, clearCart } = useCart(); 
+  
+  const { cart, clearCart, removeProduct } = useCart(); 
 
+  const handleRemoveProduct = (productId) => {
+    removeProduct(productId);
+  };
 
   return (
     <Container>
@@ -68,12 +85,14 @@ const Cart = () => {
       <ClearButton onClick={() => clearCart()}>Limpiar carrito</ClearButton>
       <ProductList>
         {cart.map((product) => (
-          <ProductItem key={product.id}>
+          <ProductItem key={product.id}>           
             Id: {product.id}, Nombre: {product.name}, Cantidad: {product.cantidad}
+            {/* <button onClick={() => handleRemoveProduct(product.id)}>Eliminar</button> */}
+            <RemoveButton onClick={() => handleRemoveProduct(product.id)}>Eliminar</RemoveButton>   
           </ProductItem>
         ))}
       </ProductList>
-      <LinkToCheckout to="/comprar">COMPRAR</LinkToCheckout>
+      <LinkToCheckout to={"/comprar"}>COMPRAR</LinkToCheckout>
     </Container>
   );
 };

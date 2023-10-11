@@ -86,7 +86,7 @@ const LoginForm = () => {
       setUser(data);
       setIsLogged(true);
       console.log(data);
-      //setRol(data);
+      
         navigate("/");
       } catch (error) {
         console.log({ error });

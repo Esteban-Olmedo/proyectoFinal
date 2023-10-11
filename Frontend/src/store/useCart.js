@@ -17,7 +17,12 @@ const useCart = create(
         } 
         cart[index].cantidad += 1;
         set({cart});
-      }
+      },
+      removeProduct: (productId) => {
+        const cart = get().cart;
+        const updatedCart = cart.filter((product) => product.id !== productId);
+        set({ cart: updatedCart });
+      },
     }),
     {
       name: "cart-storage",
