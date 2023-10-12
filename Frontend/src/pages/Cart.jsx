@@ -35,10 +35,13 @@ const ProductList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
+
+ 
 `;
 
 const ProductItem = styled.li`
   margin-bottom: 10px;
+ 
 `;
 
 const RemoveButton = styled.button`
@@ -87,7 +90,7 @@ const Cart = () => {
         {cart.map((product) => (
           <ProductItem key={product.id}>           
             {/* Id: {product.id}, Nombre: {product.name}, Cantidad: {product.cantidad} */}
-            {product.name} - x {product.cantidad} - Precio: U$S {product.price}
+            {product.name}  x {product.cantidad} - Precio: U$S {product.price}
             <RemoveButton onClick={() => handleRemoveProduct(product.id)}>Eliminar</RemoveButton>   
           </ProductItem>
         ))}

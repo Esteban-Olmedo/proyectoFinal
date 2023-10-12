@@ -7,8 +7,6 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
 import Register from "./pages/Register";
-import Comprar from "./pages/Comprar";
-import MainLayout from './layouts/MainLayout';
 import CreateProduct from './pages/CreateProduct';
 import EditProduct from './pages/EditProduct';
 import Order from './pages/Order';

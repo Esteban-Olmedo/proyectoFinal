@@ -4,21 +4,13 @@ import styled from 'styled-components';
 
 
 const CreateProductContainer = styled.div`
-max-width: 1000px;
-margin: 0 auto;
+display: flex;
+flex-direction: column;
+align-items: center;
 padding: 20px;
-border: 1px solid #ccc;
-border-radius: 5px;
 background-color: #0B3954;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-//   max-width: 400px;
-//   margin: 0 auto;
-//   padding: 20px;
-//   border: 1px solid #ccc;
-//   border-radius: 5px;
-//   background-color: #0B3954;
-//   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-//   text-align: center;
+
+
 `;
 
 

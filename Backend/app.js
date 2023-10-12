@@ -21,12 +21,6 @@ app.use("/api/orders", require ("./src/routes/orderRoutes.js"));
 
 
 
-app.get("/api/test", (req, res) => {
-    res.json([
-        {id: 1, name: "prod1", price: 100, size: "L", categorie: "lisa"},
-        {id: 2, name: "prod2", price: 555, size: "S", categorie: "dibujo"}
-    ]);
-});
 
 
 

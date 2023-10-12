@@ -5,10 +5,10 @@ const router = express.Router();
 const { createOrder, getOrder, updateOrder, deleteOrder, listOrders } = require ("../controllers/orderControllers");
 const { validateCreateOrder, validateUpdateOrder } = require ("../middlewares/orderValidations");
 
-router.post('/', validateCreateOrder, createOrder); // Crear una nueva orden
-router.get('/:orderId', getOrder); // Obtener detalles de una orden específica
-router.put('/:orderId', validateUpdateOrder, updateOrder); // Actualizar una orden existente
-router.delete('/:orderId', deleteOrder); // Eliminar una orden existente
-router.get('/', listOrders); // Listar todas las órdenes
+router.post('/', validateCreateOrder, createOrder); 
+router.get('/:orderId', getOrder); 
+router.put('/:orderId', validateUpdateOrder, updateOrder); 
+router.delete('/:orderId', deleteOrder); 
+router.get('/', listOrders); 
 
 module.exports = router;

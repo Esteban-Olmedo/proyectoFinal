@@ -6,24 +6,13 @@ const useUserLogin = create(
     (set) => ({
       isLogged: false, //null 
       
-      user: {}, //inicial
+      user: {}, 
       setIsLogged: (isLogged) => set(() => ({ isLogged: isLogged })),
       setUser: (user) =>
         set(() => ({ user: user
         })),
       }),
-      /////////
-      // user: {            
-      //     ...state.user,
-          
-      //     name: user.name,
-      //     rol: user.rol,
-      //     surname: user.surname,
-      //     phone: user.phone,
-      //     email: user.email,
-      //     address: user.address,            
-      // },
-  ///////////////
+      
       
     {
       name: "user-login-storage",

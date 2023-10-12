@@ -15,7 +15,7 @@ const ProductCardContainer = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center; // Centrar contenido verticalmente
+  align-items: center; 
 `;
 
 const LinkToEdit = styled(Link)`
@@ -29,7 +29,7 @@ font-size: 16px;
 transition: background-color 0.2s ease;
 
 &:hover {
-  background-color: #087e8b;
+  background-color: #0B3954; 
 }
 `;
 
@@ -51,9 +51,9 @@ const ProductCardButton = styled.button`
 
 
 const ProductCardImage = styled.img`
-  max-width: 100%; // Asegura que la imagen no se desborde del contenedor
-  max-height: 200px; // Altura máxima deseada para las imágenes
-  object-fit: cover; // Escalar la imagen para llenar el contenedor
+  max-width: 100%; 
+  max-height: 200px; 
+  object-fit: cover; 
 `;
 
 

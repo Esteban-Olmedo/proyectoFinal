@@ -1,13 +1,7 @@
 const bcrypt = require("bcrypt");
 const Users = require("../../models/index").users;
 
-// const renderLogin = (req, res) => {
-//     res.send("login")
-// };
 
-// const renderRegister = (req, res) => {
-//     res.send("register")
-// };
 
 
 
@@ -43,7 +37,7 @@ const login = async (req, res) => {
                 console.log(error);
                 res.status(400).send("Error al comparar la contraseña");
             }
-            // result solo va a ser TRUE o FALSE
+            
             if (result) {
                 //console.log("contraseña correcta");
                 res.status(200).json({
