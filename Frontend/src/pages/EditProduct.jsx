@@ -1,8 +1,9 @@
 
-// import React, { useState } from "react";
-// import { useParams } from "react-router-dom";
-// import useCart from "../../store/useCart";
-// import styled from "styled-components";
+//import styled from "styled-components";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 // const EditProductContainer = styled.div`
 //   background-color: #fff;
@@ -32,36 +33,71 @@
 //   }
 // `;
 
-// const EditProduct = () => {
-//   const { productId } = useParams(); // Obtener el ID del producto a editar
-//   const [product, setProduct] = useState(/* Obten el producto con el ID proporcionado */);
-//   const { addProduct } = useCart();
 
-//   const handleUpdateProduct = () => {
-//     // Implementa la lógica para actualizar el producto en la base de datos o en tu estado.
-//   };
+const EditProducts = () => {
+  const [product, setProduct] = useState({
+    name: '',
+    price: '',
+    size: '',
+    categorie: '',
+    url: '',
+  });
+  const navigate = useNavigate();
+  const location = useLocation();
+  const productId = location.pathname.split("/")[2];
 
-//   return (
-//     <EditProductContainer>
-//       {/* Renderiza los campos de edición del producto */}
-//       <h2>Editar Producto</h2>
-//       {/* Agrega los campos para editar el producto, como nombre, precio, tamaño, categoría, etc. */}
-//       <EditProductButton onClick={handleUpdateProduct}>Guardar Cambios</EditProductButton>
-//     </EditProductContainer>
-//   );
-// };
+  // console.log(productId)
+  const handleChange = (e) => {
+    setProduct((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
-// export default EditProduct;
-
-////////////////////////////////////////
-
-// import React from 'react';
-// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
-// const Comprar = () => {
-//     return(
-//         <h1>Comprar</h1>
-//     )
-// };
-
-// export default Comprar;
+  const handleClick = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put("/api/productos/" + productId, product);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  //console.log(product);
+  return (
+    <div>
+      <h1>Actualizar Producto</h1>
+      <input
+        type="text"
+        placeholder="name"
+        onChange={handleChange}
+        name="name"
+      />
+      <input
+        type="number"
+        placeholder="price"
+        onChange={handleChange}
+        name="price"
+      />
+      <input
+        type="text"
+        placeholder="size"
+        onChange={handleChange}
+        name="size"
+      />
+      <input
+        type="text"
+        placeholder="categorie"
+        onChange={handleChange}
+        name="categorie"
+      />
+      <input
+        type="text"
+        placeholder="url"
+        onChange={handleChange}
+        name="url"
+      />
+      <button  onClick={handleClick}>
+        Actualizar
+      </button>
+    </div>
+  );
+};
+export default EditProducts;

@@ -6,7 +6,7 @@ import ProductGrid from "../components/products/ProductGrid";
 import ButtonCreateProduct from "../components/products/ButtonCreateProduct";
 import styled from 'styled-components';
 
-// Estilo para el contenedor de Home
+
 const HomeContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -20,7 +20,7 @@ background-color: #0B3954;
   // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 `;
 
-// Estilo para el campo de búsqueda
+
 const SearchInput = styled.input`
   width: 100%;
   padding: 10px;
@@ -70,49 +70,4 @@ const Home = () => {
 };
 
 export default Home;
-
-// const Home = () => {
-//   const [products, setProducts] = useState([]);
-//   const [filteredProducts, setFilteredProducts] = useState([]);
-//   const [searchTerm, setSearchTerm] = useState("");
-  
-//   const { user } = useUserLogin();
-//   useEffect(() => {
-//     fetch("/api/productos")
-//       .then((response) => response.json())
-//       .then((data) => {
-//         setProducts(data.data);
-//         setFilteredProducts(data.data);
-//       });
-//   }, []);
-//   useEffect(() => {
-//     if (searchTerm === "") {
-//       setFilteredProducts(products);
-//       return;
-//     }
-//     const filteredProducts = products.filter((product) =>
-//       product.name.toLowerCase().includes(searchTerm.toLowerCase()) 
-//     );
-//     setFilteredProducts(filteredProducts);
-//   }, [searchTerm]);
-
-//   return (
-//     <>
-      
-//       <input
-//         type="text"
-//         placeholder="Search"
-//         value={searchTerm}
-//         onChange={(e) => setSearchTerm(e.target.value)}
-//       />
-//       {filteredProducts ? <ProductGrid products={filteredProducts} /> : null}
-      
-//       <div>
-//         <ButtonCreateProduct/>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Home;
 

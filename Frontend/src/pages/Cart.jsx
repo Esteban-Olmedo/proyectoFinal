@@ -86,8 +86,8 @@ const Cart = () => {
       <ProductList>
         {cart.map((product) => (
           <ProductItem key={product.id}>           
-            Id: {product.id}, Nombre: {product.name}, Cantidad: {product.cantidad}
-            {/* <button onClick={() => handleRemoveProduct(product.id)}>Eliminar</button> */}
+            {/* Id: {product.id}, Nombre: {product.name}, Cantidad: {product.cantidad} */}
+            {product.name} - x {product.cantidad} - Precio: U$S {product.price}
             <RemoveButton onClick={() => handleRemoveProduct(product.id)}>Eliminar</RemoveButton>   
           </ProductItem>
         ))}
@@ -100,28 +100,3 @@ const Cart = () => {
 export default Cart;
 
 
-// const Cart = () => {
-//   const { cart, clearCart } = useCart();
-
-//   console.log(cart);
-//   return (
-//     <>
-       
-//       <h1>Carrito de Compras</h1>
-      
-//       <button onClick={() => clearCart()}>Limpiar carrito</button>
-//       <ul>
-//         {cart.map((product) => (
-//             <li key={product.id}>
-//             Id:{product.id}, Nombre: {product.nombre}, cantidad:{" "}
-//             {product.cantidad}
-//           </li>
-//         ))}
-//       </ul>
-        
-//       <Link to="/finalizar-compra">Ir a pagar</Link>
-//     </>
-//   );
-// };
-
-// export default Cart;

@@ -6,6 +6,7 @@ const validateActualizacion = [
     .notEmpty()
     .withMessage("Debes completar el campo"),
   body("price")
+  
     .isNumeric({ max: 10 })
     .withMessage("Debes ingresar un numero válido"),
   body("size")

@@ -10,7 +10,7 @@ import Register from "./pages/Register";
 import Comprar from "./pages/Comprar";
 import MainLayout from './layouts/MainLayout';
 import CreateProduct from './pages/CreateProduct';
-//import EditProduct from './pages/EditProduct';
+import EditProduct from './pages/EditProduct';
 import Order from './pages/Order';
 
 
@@ -30,16 +30,16 @@ function App() {
             path="/"
             element={<Home />}>
           </Route>
-        {/* </Routes> */}
+        
 
-        {/* <Routes> */}
+        
           <Route
             path="/login"
             element={<Login />}>
           </Route>
-        {/* </Routes> */}
+       
 
-        {/* <Routes> */}
+        
           <Route
             path="/cart"
             element={
@@ -48,32 +48,32 @@ function App() {
            
             }>
           </Route>
-        {/* </Routes> */}
+       
 
-        {/* <Routes> */}
+        
           <Route
             path="/register"
             element={<Register />}>
           </Route>
-        {/* </Routes> */}
+       
 
-        {/* <Routes> */}
+        
           <Route
             path="/comprar"
             element={<Order />}>
           </Route>
-        {/* </Routes> */}
+        
         <Route
             path="/crear"
             element={<CreateProduct />}>
           </Route>
 
-          {/* <Route
-            path="/editar"
+          <Route
+            path="/editar/:id"
             element={<EditProduct />}>
-          </Route> */}
+          </Route>
 
-        {/* <Routes> */}
+       
           <Route
             path="*"
             element={

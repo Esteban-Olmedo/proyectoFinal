@@ -8,6 +8,7 @@ import useUserLogin from '../store/useUserLogin';
 function Order() {
     const { cart } = useCart(); // Obtiene el carrito desde el estado global
     const { user } = useUserLogin(); // Obtiene los datos del usuario
+    // const [error, setError] = useState(false);
     
   // Calcula el precio total de la orden
   const totalPrice = cart.reduce((total, product) => {
@@ -15,10 +16,33 @@ function Order() {
   }, 0);
 
   const handleOrderConfirmation = async () => {
+
+    // try {
+    //   const response = await fetch('/api/orders', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(producto),
+    //   });
+
+    //   if (!response.ok) {
+    //     setProducto(false);
+    //     return setError(true);
+    //   }
+
+    //   const data = await response.json();
+    //   setProducto(data);
+    //   navigate('/');
+    // } catch (error) {
+    //   console.log({ error });
+    //   setError(true);
+    // }
+
     const orderData = {
       user_id: user.name, 
       total_price: totalPrice,
-      // Otras propiedades de la orden, como tipo de envío y dirección de envío
+      
     };
     console.log(orderData);
     try {
@@ -29,7 +53,11 @@ function Order() {
         },
         body: JSON.stringify(orderData),
       });
+
+  
       if (response.ok) {
+        alert("orden creada")
+        console.log(response.ok)
         // La orden se creó con éxito, puedes redirigir al usuario a una página de confirmación
         // o realizar otras acciones necesarias
       } else {
@@ -38,6 +66,24 @@ function Order() {
     } catch (error) {
       console.error("Error al procesar la orden:", error);
     }
+//////////////////////////////////////////
+    // if (!response.ok) {
+      
+    //   return setError(true);
+      
+    // }
+    
+    // const {data} = await response.json();
+    // //setUser(data);
+    
+    
+    
+    //   navigate("/");
+    // } catch (error) {
+    //   console.log({ error });
+    //   setError(true);
+    // }
+ /////////////////////////////////////////////////  
   };
   return (
     <div>

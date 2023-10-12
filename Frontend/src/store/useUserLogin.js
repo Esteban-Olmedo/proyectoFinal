@@ -9,23 +9,22 @@ const useUserLogin = create(
       user: {}, //inicial
       setIsLogged: (isLogged) => set(() => ({ isLogged: isLogged })),
       setUser: (user) =>
-        set((state) => ({
-          user: {
-            
-              ...state.user,
-              
-              name: user.name,
-              rol: user.rol,
-              surname: user.surname,
-              phone: user.phone,
-              email: user.email,
-              address: user.address,
-            
-          },
+        set(() => ({ user: user
         })),
-    }),
-      // setUser: (user) => set((state) => ({ user: {...user.data} })),
-      // setIsAdmin: (isAdmin) => set(() => ({ isAdmin: isAdmin }))
+      }),
+      /////////
+      // user: {            
+      //     ...state.user,
+          
+      //     name: user.name,
+      //     rol: user.rol,
+      //     surname: user.surname,
+      //     phone: user.phone,
+      //     email: user.email,
+      //     address: user.address,            
+      // },
+  ///////////////
+      
     {
       name: "user-login-storage",
       storage: createJSONStorage(() => sessionStorage),

@@ -22,22 +22,34 @@ const ErrorText = styled.p`
 `;
 
 const SubmitButton = styled.button`
-  background-color: #C81D25; /* Cambio de color */
+background-color: #C81D25;
+  color: #fff;
   border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
+  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+
   &:hover {
-    background-color: #087E8B; /* Cambio de color */
-    color: white; /* Cambio de color #087E8B */
-    border: 1px solid black; /* Cambio de color */
+    background-color: #087E8B;
   }
+  // background-color: #C81D25; /* Cambio de color */
+  // border: none;
+  // color: white;
+  // padding: 15px 32px;
+  // text-align: center;
+  // text-decoration: none;
+  // display: inline-block;
+  // font-size: 16px;
+  // margin: 4px 2px;
+  // transition-duration: 0.4s;
+  // cursor: pointer;
+  // &:hover {
+  //   background-color: #087E8B; /* Cambio de color */
+  //   color: white; /* Cambio de color #087E8B */
+  //   border: 1px solid black; /* Cambio de color */
+  // }
 `;
 
 const Container = styled.div`
@@ -62,7 +74,7 @@ const LoginForm = () => {
       setLoading(true);
       setError(false);
       try {
-        const response = await fetch("api/usuarios/login", { // "/api/login"
+        const response = await fetch("api/usuarios/login", { 
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -73,19 +85,18 @@ const LoginForm = () => {
           }),
         });
 
-        // Actualizar el estado global con la información del usuario y su rol de administrador.
-      // setUser(data);
-      // setIsLogged(true);
+       
       
       if (!response.ok) {
         setLoading(false);
         return setError(true);
+        // console.log(response)
       }
       
       const {data} = await response.json();
+      console.log(data);
       setUser(data);
       setIsLogged(true);
-      console.log(data);
       
         navigate("/");
       } catch (error) {

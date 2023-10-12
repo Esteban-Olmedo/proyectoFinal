@@ -1,4 +1,5 @@
-const OrderDetails = require("../../models/orderdetails").orderDetails;
+// const OrderDetails = require("../../models/orderdetails").orderDetails;
+const OrderDetails = require("../../models/index").orderDetails;
 const Order = require('../../models/index').orders;
 
 // CREAR NUEVA ORDEN

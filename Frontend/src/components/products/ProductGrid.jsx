@@ -4,7 +4,7 @@ import useUserLogin from "../../store/useUserLogin";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-// Estilo para el contenedor de ProductCard
+
 const ProductCardContainer = styled.div`
   background-color: #087E8B;
   border: 1px solid #ccc;
@@ -19,7 +19,7 @@ const ProductCardContainer = styled.div`
 `;
 
 const LinkToEdit = styled(Link)`
-background-color: #c81d25;
+background-color: #c81d25; 
 color: #fff;
 border: none;
 border-radius: 5px;
@@ -33,7 +33,7 @@ transition: background-color 0.2s ease;
 }
 `;
 
-// Estilo para el botón en ProductCard
+
 const ProductCardButton = styled.button`
   background-color: #c81d25;
   color: #fff;
@@ -45,11 +45,11 @@ const ProductCardButton = styled.button`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #087e8b;
+    background-color: #0B3954;
   }
 `;
 
-// Estilo para la imagen en ProductCard
+
 const ProductCardImage = styled.img`
   max-width: 100%; // Asegura que la imagen no se desborde del contenedor
   max-height: 200px; // Altura máxima deseada para las imágenes
@@ -68,7 +68,7 @@ const ProductCard = ({ product }) => {
   const renderActionButton = () => {
     if (user.rol === "admin") {
       return <LinkToEdit to={`/editar/${product.id}`}>Editar</LinkToEdit>
-      // return <ProductCardButton>Editar</ProductCardButton>;
+      
     } else {
       return (
         <ProductCardButton onClick={handleAddCart}>
@@ -82,22 +82,22 @@ const ProductCard = ({ product }) => {
     <ProductCardContainer>
       <ProductCardImage alt={product.url} src={product.url} />
       <h2>{product.name}</h2>
-      <p>Precio: ${product.price}</p>
+      <p>Precio: U$S {product.price}</p>
       <p>Talle: {product.size}</p>
-      <p>Categoria: {product.category}</p>
+      <p>Categoria: {product.categorie}</p>
       {renderActionButton()}
     </ProductCardContainer>
   );
 };
 
-// Estilo para el contenedor de ProductGrid
+
 const ProductGridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 `;
 
-// Aplicar estilos al componente ProductGrid
+
 const ProductGrid = ({ products }) => {
   return (
     <ProductGridContainer>
@@ -114,49 +114,3 @@ export default ProductGrid;
 
 
 
-
-// const ProductCard = ({ product  }) => {
-//   const { addProduct } = useCart();
-//   const {user} = useUserLogin();
-  
-//   const handleAddCart = () => {
-//     addProduct(product);
-//   };
-//   const renderActionButton = () => {
-//     if (user.rol === "admin") {
-      
-//       return <button>Editar</button>;
-//     } else {
-      
-//       return <button onClick={handleAddCart}>Agregar al carrito</button>;
-//     }
-//   };
-
- 
-//   return (
-//     <div>
-//       <img alt={product.url} src={product.url} />
-//       <h2>{product.name}</h2>
-//       <p>Precio: ${product.price}</p>
-//       <p>Talle: {product.size}</p>
-//       <p>Categoria: {product.categorie}</p>
-      
-//       {renderActionButton()} 
-
-
-//     </div>
-//   );
-// };
-// const ProductGrid = ({ products }) => {
-  
-//   return (
-//     <div >
-//       {products.map((product) => (
-//         <ProductCard key={product.id} product={product} />
-//         ))}
-        
-      
-//     </div>
-//   );
-// };
-// export default ProductGrid;
